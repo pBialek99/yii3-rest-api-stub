@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Api\Shared\ExceptionResponderFactory;
-use App\Api\Shared\NotFoundMiddleware;
 use Yiisoft\DataResponse\Formatter\JsonFormatter;
 use Yiisoft\DataResponse\Formatter\XmlFormatter;
 use Yiisoft\DataResponse\Middleware\ContentNegotiatorDataResponseMiddleware;
@@ -36,10 +34,8 @@ return [
                             fallback: new JsonFormatter(),
                         ),
                         ErrorCatcher::class,
-                        static fn(ExceptionResponderFactory $factory) => $factory->create(),
                         RequestBodyParser::class,
                         Router::class,
-                        NotFoundMiddleware::class,
                     ],
                 ],
             ]),

@@ -1,4 +1,4 @@
-FROM nginx:10.30.4-alpine
+FROM nginx:1.31-alpine
 
 # COPY NGINX CONFIGURATION
 COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf

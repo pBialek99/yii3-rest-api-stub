@@ -13,10 +13,13 @@ RUN apk add --no-cache \
         pdo_pgsql \
         intl \
         zip \
-        opcache \
+# INSTALL BUILD DEPENDENCIES FOR XDEBUG
+    && apk add --no-cache --virtual .xdebug-build-deps $PHPIZE_DEPS linux-headers \
 # INSTALL XDEBUG
     && pecl install xdebug \
-    && docker-php-ext-enable xdebug
+    && docker-php-ext-enable xdebug \
+# REMOVE BUILD DEPENDENCIES
+    && apk del .xdebug-build-deps
 
 # SET WORKING DIRECTORY
 WORKDIR /var/www/html
