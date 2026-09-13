@@ -1,0 +1,15 @@
+.git
+.gitignore
+.idea
+.vscode
+nbproject
+.buildpath
+.project
+.settings
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
+.DS_Store
+vendor
+runtime
+.env
